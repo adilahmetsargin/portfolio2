@@ -6,7 +6,6 @@ import {
   ArrowUpRight,
   BarChart3,
   Boxes,
-  CalendarDays,
   CarFront,
   CheckCircle2,
   ChevronRight,
@@ -16,18 +15,15 @@ import {
   DatabaseZap,
   Factory,
   Filter,
-  Gauge,
   Github,
   Hammer,
   LineChart,
-  Mail,
   MapPin,
   Network,
   PackageCheck,
   Play,
   Radar,
   RefreshCw,
-  Send,
   ShieldCheck,
   TrendingDown,
   Truck,
@@ -38,10 +34,10 @@ import * as THREE from "three";
 import "./styles.css";
 
 const profile = {
-  name: "Sargin",
-  email: "your.email@example.com",
-  github: "https://github.com/your-github",
-  linkedin: "https://www.linkedin.com/in/your-linkedin",
+  name: "Adil Ahmet Sargin",
+  shortName: "Adil Sargin",
+  github: "https://github.com/adilahmetsargin",
+  repo: "https://github.com/adilahmetsargin/portfolio2",
   location: "Michigan"
 };
 
@@ -764,7 +760,6 @@ function App() {
   const [activeFilter, setActiveFilter] = useState("All");
   const [activeTool, setActiveTool] = useState("handoff");
   const year = useMemo(() => new Date().getFullYear(), []);
-  const contactHref = `mailto:${profile.email}?subject=Portfolio%20conversation&body=Hi%20${profile.name},%0D%0A%0D%0AI%20saw%20your%20portfolio%20and%20wanted%20to%20talk%20about%20a%20software%20or%20operations%20tool.%0D%0A`;
   const filteredProjects = useMemo(
     () => projects.filter((project) => activeFilter === "All" || project.categories.includes(activeFilter)),
     [activeFilter]
@@ -796,9 +791,6 @@ function App() {
             <a href="#flagship-apps">Apps</a>
             <a href="#tools">Lab</a>
             <a href="#contact">Contact</a>
-            <a href={contactHref} className="icon-button" aria-label="Email">
-              <Mail size={18} />
-            </a>
             <a href={profile.github} className="icon-button" aria-label="GitHub">
               <Github size={18} />
             </a>
@@ -824,9 +816,9 @@ function App() {
               Prototype lab
               <ChevronRight size={18} />
             </a>
-            <a className="secondary-action compact" href={contactHref}>
-              <Send size={18} />
-              Start a conversation
+            <a className="secondary-action compact" href="#contact">
+              Contact
+              <ChevronRight size={18} />
             </a>
           </div>
         </div>
@@ -1002,24 +994,20 @@ function App() {
           </p>
         </div>
         <div className="contact-actions">
-          <a className="primary-action" href={contactHref}>
-            <Mail size={18} />
-            Email me
-          </a>
-          <a className="secondary-action" href={profile.github}>
+          <a className="primary-action" href={profile.github}>
             <Github size={18} />
-            GitHub
+            GitHub profile
           </a>
-          <a className="secondary-action" href={profile.linkedin}>
-            <CalendarDays size={18} />
-            LinkedIn
+          <a className="secondary-action" href={profile.repo}>
+            <ArrowUpRight size={18} />
+            Project repository
           </a>
         </div>
       </section>
 
       <footer>
         <span>© {year} {profile.name} · Solution Portfolio</span>
-        <a href={contactHref}>{profile.email}</a>
+        <a href={profile.github}>github.com/adilahmetsargin</a>
       </footer>
     </main>
   );

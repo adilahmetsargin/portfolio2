@@ -1,4 +1,4 @@
-# Solution Portfolio
+# Adil Ahmet Sargin | Software Portfolio
 
 A single portfolio hub for software projects that combine business thinking, interactive UI, data visibility, and practical workflow design.
 
@@ -78,6 +78,11 @@ It demonstrates:
 - CSS
 - Netlify-ready static build
 
+## Links
+
+- Live site: https://aas-engineer.netlify.app/
+- Repository: https://github.com/adilahmetsargin/portfolio2
+
 ## Local Development
 
 Install dependencies:
@@ -119,4 +124,3 @@ This portfolio is designed to support a broader career story:
 > I build useful software for business problems.
 
 It can speak to automotive companies through the 3D and quality demos, while still showing general software value through internal tools, data apps, and web application concepts.
-
