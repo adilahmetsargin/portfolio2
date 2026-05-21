@@ -18,12 +18,14 @@ import {
   Github,
   Hammer,
   LineChart,
+  Mail,
   MapPin,
   Network,
   PackageCheck,
   Play,
   Radar,
   RefreshCw,
+  Send,
   ShieldCheck,
   TrendingDown,
   Truck,
@@ -36,6 +38,7 @@ import "./styles.css";
 const profile = {
   name: "Adil Ahmet Sargin",
   shortName: "Adil Sargin",
+  email: "adilahmetsargin@gmail.com",
   github: "https://github.com/adilahmetsargin",
   repo: "https://github.com/adilahmetsargin/portfolio2",
   location: "Michigan"
@@ -760,6 +763,7 @@ function App() {
   const [activeFilter, setActiveFilter] = useState("All");
   const [activeTool, setActiveTool] = useState("handoff");
   const year = useMemo(() => new Date().getFullYear(), []);
+  const contactHref = `mailto:${profile.email}?subject=Portfolio%20conversation&body=Hi%20${profile.shortName},%0D%0A%0D%0AI%20saw%20your%20portfolio%20and%20wanted%20to%20talk%20about%20a%20software%20or%20workflow%20project.%0D%0A`;
   const filteredProjects = useMemo(
     () => projects.filter((project) => activeFilter === "All" || project.categories.includes(activeFilter)),
     [activeFilter]
@@ -791,6 +795,9 @@ function App() {
             <a href="#flagship-apps">Apps</a>
             <a href="#tools">Lab</a>
             <a href="#contact">Contact</a>
+            <a href={contactHref} className="icon-button" aria-label="Email">
+              <Mail size={18} />
+            </a>
             <a href={profile.github} className="icon-button" aria-label="GitHub">
               <Github size={18} />
             </a>
@@ -819,6 +826,10 @@ function App() {
             <a className="secondary-action compact" href="#contact">
               Contact
               <ChevronRight size={18} />
+            </a>
+            <a className="secondary-action compact" href={contactHref}>
+              <Send size={18} />
+              Email me
             </a>
           </div>
         </div>
@@ -994,20 +1005,20 @@ function App() {
           </p>
         </div>
         <div className="contact-actions">
-          <a className="primary-action" href={profile.github}>
+          <a className="primary-action" href={contactHref}>
+            <Mail size={18} />
+            Email me
+          </a>
+          <a className="secondary-action" href={profile.github}>
             <Github size={18} />
             GitHub profile
-          </a>
-          <a className="secondary-action" href={profile.repo}>
-            <ArrowUpRight size={18} />
-            Project repository
           </a>
         </div>
       </section>
 
       <footer>
         <span>© {year} {profile.name} · Solution Portfolio</span>
-        <a href={profile.github}>github.com/adilahmetsargin</a>
+        <a href={contactHref}>{profile.email}</a>
       </footer>
     </main>
   );
